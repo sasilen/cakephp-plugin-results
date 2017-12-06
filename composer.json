@@ -1,0 +1,23 @@
+{
+    "name": "sasilen/Results",
+    "description": "Results plugin for CakePHP 3",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "require": {
+        "cakephp/cakephp": "^3.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7|^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Results\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Results\\Test\\": "tests",
+            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+        }
+    }
+}
