@@ -24,6 +24,8 @@ class ResultsController extends AppController
             'contain' => ['Users']
         ];
 				$query = $this->request->getQueryParams();
+				unset($query['direction']);
+				unset($query['sort']);
 
         $results = $this->paginate($this->Results->find()->where([$query]));
 				$dates = $this->Results->find()->select(['date'])->distinct(['date'])->where([$query])->order(['date'=>'desc'])->all();
