@@ -12,6 +12,11 @@ use Results\Controller\AppController;
  */
 class ResultsController extends AppController
 {
+		public function initialize()
+		{
+			parent::initialize();
+    	$this->Auth->allow(['index']);
+		}
 
     /**
      * Index method
@@ -26,6 +31,7 @@ class ResultsController extends AppController
 				$query = $this->request->getQueryParams();
 				unset($query['direction']);
 				unset($query['sort']);
+				unset($query['page']);
 
         $results = $this->paginate($this->Results->find()->where([$query]));
 				$dates = $this->Results->find()->select(['date'])->distinct(['date'])->where([$query])->order(['date'=>'desc'])->all();
