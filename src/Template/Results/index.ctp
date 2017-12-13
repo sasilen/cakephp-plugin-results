@@ -18,6 +18,9 @@
 		if (isset($query['date'])) :
       $this->Breadcrumbs->add($query['date'],['plugin'=>'Results','controller' => 'results', 'action' => 'index','?'=>['date'=>$query['date']]],['class'=>'breadcrumb-item']);
     endif;
+		if (isset($query['league'])) :
+      $this->Breadcrumbs->add($query['league'],['plugin'=>'Results','controller' => 'results', 'action' => 'index','?'=>['league'=>$query['league']]],['class'=>'breadcrumb-item']);
+    endif;
 		$this->Breadcrumbs->add('index',null,['class'=>'breadcrumb-item active']);
 		$this->Breadcrumbs->add($this->AuthLink->link($this->Html->image('Blog.ic_note_add_black_24px.svg'),['plugin'=>'Results','controller'=>'results','action' => 'add'],['escape'=>false,'class'=>'badge badge-info ml-1 float-right']));
 		echo $this->Breadcrumbs->render(
