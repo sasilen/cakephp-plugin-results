@@ -28,17 +28,18 @@ echo $this->Breadcrumbs->render(
             echo $this->Form->control('firstname',['label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->control('surname',['label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->control('club',['label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->control('email',['label' => ['class' => 'col-sm-2 control-label']]);
+    //        echo $this->Form->control('email',['label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->control('race',['label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->control('league',['label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->control('distance',['label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->control('time', ['label' => ['class' => 'col-sm-2 control-label']]);
 					  echo $this->Form->control('date',['label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->control('gender',['label' => ['class' => 'col-sm-2 control-label']]);
-						echo $this->Form->control('birthdate',['label' => ['class' => 'col-sm-2 control-label']]);
+  //          echo $this->Form->control('gender',['label' => ['class' => 'col-sm-2 control-label']]);
+//						echo $this->Form->control('birthdate',['label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->control('agegroup',['label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->control('ranking',['label' => ['class' => 'col-sm-2 control-label']]);
-						echo $this->Form->control('user_id', ['default'=>$post['user_id'],'options' => $users,'label' => ['class' => 'col-sm-2 control-label']]);
+						echo $this->Form->hidden('user_id',[ 'value'=>$this->Session->read('Auth.User')['id'] ]) 
+						;// ['default'=>$post['user_id'],'options' => $users,'label' => ['class' => 'col-sm-2 control-label']]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

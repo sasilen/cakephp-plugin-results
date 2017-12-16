@@ -28,6 +28,15 @@
 		);
 ?>
       <div class="row">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- google_728x90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-3385878572697735"
+     data-ad-slot="3338879303"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 				<table class="table table-bordered">
         <thead>
             <tr>
@@ -66,7 +75,11 @@
 <!--                <td><?= h($result->gender) ?></td>
                 <td><?= $this->Number->format($result->agegroup) ?></td> -->
                 <td><?= $this->Number->format($result->ranking) ?>
-									 <?= $this->AuthLink->link($this->Html->image('Blog.ic_mode_edit_black_24px.svg'),['plugin'=>'Results','controller'=>'results','action' => 'edit',$result->id],['escape'=>false,'class'=>'badge badge-info ml-1 float-right']);?>
+									 <?= $this->AuthLink->link($this->Html->image('Blog.ic_mode_edit_black_24px.svg'),['plugin'=>'Results','controller'=>'results','action' => 'edit',$result->id],['escape'=>false,'class'=>'float-right']);?>
+								   <?php if ($this->AuthLink->isAuthorized(['plugin'=>'results','controller'=>'results','action' => 'delete',$result->id])) : ?> 
+                     <?= $this->Form->postLink($this->Html->image('ic_delete_forever_black_24px.svg'), ['action' => 'delete', $result->id], ['confirm' => __('Are you sure you want to delete # {0}?', $result->id),'escape'=>false,'class'=>'float-right']) ?>
+                   <?php endif; ?>
+
 								</td>
             </tr>
             <?php endforeach; ?>
@@ -85,7 +98,7 @@
 			</div>
 		</div>
     <div class="col-md-4">
-		<?php if (isset($dates) && isset($query['race'])): ?>
+		<?php if (isset($dates)): ?>
       <h3><?php echo __('Dates',true);?></h3>
 			<?=$this->Results->menu($dates,'date',$query); ?>
     <?php endif?>
@@ -95,7 +108,7 @@
       <?=$this->Results->menu($clubs,'club',$query); ?>
     <?php endif?>
 
-		<?php if (isset($leagues) && isset($query['race'])): ?>
+		<?php if (isset($leagues)): ?>
       <h3><?php echo __('Leagues',true);?></h3>
       <?=$this->Results->menu($leagues,'league',$query); ?>
     <?php endif?>
@@ -104,6 +117,17 @@
 	    <h3><?php echo __('Races',true);?></h3>
 			<?=$this->Results->menu($races,'race',$query); ?>
     <?php endif?>
+		<hr/>
+		<H3> Laukkosken Taimi </h3>
+		<p> Kotojärven ympärijuoksun tulostaulu.</p>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- sidebanner -->
+		<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3385878572697735"
+     data-ad-slot="2808014484"
+     data-ad-format="auto"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 </div>
 </div>
