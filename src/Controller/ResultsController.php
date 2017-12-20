@@ -26,7 +26,8 @@ class ResultsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users']
+            'contain' => ['Users'],
+//						'sort'=> ['time'=>'DESC'],
         ];
 				$query = $this->request->getQueryParams();
 				unset($query['direction']);
