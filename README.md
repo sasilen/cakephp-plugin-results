@@ -1,4 +1,4 @@
-# Results plugin for CakePHP 3
+# Results plugin for CakePHP 4
 
 ## Installation
 

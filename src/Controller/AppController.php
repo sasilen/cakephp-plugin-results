@@ -9,6 +9,6 @@ class AppController extends BaseController
 
 {
 
-	public $helpers = ['CakeDC/Users.AuthLink','Results.Results','Paginator' => ['templates' => 'paginator-templates']];
+	public $helpers = ['CakeDC/Users.AuthLink','Sasilen/Results.Results','Paginator' => ['templates' => 'paginator-templates']];
 
 }

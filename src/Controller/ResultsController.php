@@ -1,23 +1,17 @@
 <?php
-namespace Results\Controller;
+declare(strict_types=1);
 
-use Results\Controller\AppController;
+namespace Sasilen\Results\Controller;
+
+use App\Controller\AppController;
 
 /**
  * Results Controller
  *
- * @property \Results\Model\Table\ResultsTable $Results
- *
- * @method \Results\Model\Entity\Result[] paginate($object = null, array $settings = [])
+ * @method \Results\Model\Entity\Result[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class ResultsController extends AppController
 {
-		public function initialize()
-		{
-			parent::initialize();
-    	$this->Auth->allow(['index']);
-		}
-
     /**
      * Index method
      *

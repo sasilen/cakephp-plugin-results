@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Results\Model\Entity;
 
 use Cake\ORM\Entity;
@@ -11,23 +13,22 @@ use Cake\ORM\Entity;
  * @property string $firstname
  * @property string $surname
  * @property string $club
- * @property string $email
- * @property string $race
- * @property string $league
- * @property float $distance
- * @property \Cake\I18n\FrozenTime $time
- * @property \Cake\I18n\FrozenDate $date
- * @property string $gender
- * @property \Cake\I18n\FrozenDate $birthdate
- * @property int $agegroup
- * @property int $ranking
- * @property string $user_id
+ * @property string|null $email
+ * @property string|null $race
+ * @property string|null $league
+ * @property float|null $distance
+ * @property \Cake\I18n\FrozenTime|null $time
+ * @property \Cake\I18n\FrozenDate|null $date
+ * @property string|null $gender
+ * @property \Cake\I18n\FrozenDate|null $birthdate
+ * @property int|null $agegroup
+ * @property int|null $ranking
+ * @property string|null $user_id
  *
  * @property \Results\Model\Entity\User $user
  */
 class Result extends Entity
 {
-
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -38,6 +39,7 @@ class Result extends Entity
      * @var array
      */
     protected $_accessible = [
+        'id' => true,
         'name' => true,
         'firstname' => true,
         'surname' => true,
@@ -53,6 +55,6 @@ class Result extends Entity
         'agegroup' => true,
         'ranking' => true,
         'user_id' => true,
-        'user' => true
+        'user' => true,
     ];
 }

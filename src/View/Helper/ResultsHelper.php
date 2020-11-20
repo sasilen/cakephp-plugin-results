@@ -1,5 +1,5 @@
 <?php
-namespace Results\View\Helper;
+namespace Sasilen\Results\View\Helper;
 
 use Cake\View\Helper;
 
@@ -30,7 +30,7 @@ class ResultsHelper extends Helper
 				$query = array();
 			}
       echo $this->Html->link(($link=='date') ? $data[$link]->format('Y-m-d') :  $data[$link],
-						array('plugin'=>'Results','controller'=>'Results','action' => 'index','?'=> $query ));
+						array('plugin'=>'Sasilen/Results','controller'=>'Results','action' => 'index','?'=> $query ));
       echo "</td>";
       if ($x>=0) $x=0; else $x++;
     endforeach;
