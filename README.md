@@ -8,5 +8,14 @@ The recommended way to install composer packages is:
 
 ```
 composer config repositories.results git https://github.com/sasilen/cakephp-plugin-results.git
-composer require sasilen/Results
+composer require sasilen/results
+```
+
+## Configuration
+```
+./bin/cake plugin load Sasilen/Results
+```
+## Migrate database schema
+```
+./bin/cake migrations migrate -p Results
 ```
