@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Results\Controller;
+namespace Sasilen\Results\Controller;
 
 use App\Controller\AppController as BaseController;
 

@@ -7,6 +7,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
+      <div style="position: absolute; margin-top:10px; right:0; margin-right:30px;">
+         <?=$this->AuthLink->link('<i class="far fa-file"></i>',['plugin'=>'Sasilen/Results','controller'=>'results','action' => 'add'],['escape'=>false]);?>
+       </div>
 		<?php $this->Breadcrumbs->setTemplates([
 	    'wrapper' => '<ol class="breadcrumb">{{content}}</ol>',
 	    'separator' => '<li{{attrs}}>{{separator}}</li>'
@@ -22,12 +25,11 @@
       $this->Breadcrumbs->add($query['league'],['plugin'=>'Sasilen/Results','controller' => 'results', 'action' => 'index','?'=>['league'=>$query['league']]],['class'=>'breadcrumb-item']);
     endif;
 		$this->Breadcrumbs->add('index',null,['class'=>'breadcrumb-item active']);
-		$this->Breadcrumbs->add($this->AuthLink->link($this->Html->image('Blog.ic_note_add_black_24px.svg'),['plugin'=>'Sasilen/Results','controller'=>'results','action' => 'add'],['escape'=>false,'class'=>'badge badge-info ml-1 float-right']));
+		// $this->Breadcrumbs->add($this->AuthLink->link('<i class="fa fa-plus-square" aria-hidden="true"></i>',['plugin'=>'Sasilen/Results','controller'=>'results','action' => 'add'],['escape'=>false,'class'=>'breadcrumb-item']));
 		echo $this->Breadcrumbs->render(
 	    ['separator' => '/']
 		);
-?>
-      <div class="row">
+    ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- google_728x90 -->
 <ins class="adsbygoogle"
@@ -75,12 +77,9 @@
 <!--                <td><?= h($result->gender) ?></td>
                 <td><?= $this->Number->format($result->agegroup) ?></td> -->
                 <td><?= $this->Number->format($result->ranking) ?>
-									 <?= $this->AuthLink->link($this->Html->image('Blog.ic_mode_edit_black_24px.svg'),['plugin'=>'Sasilen/Results','controller'=>'results','action' => 'edit',$result->id],['escape'=>false,'class'=>'float-right']);?>
-								   <?php if ($this->AuthLink->isAuthorized(['plugin'=>'Sasilen/Results','controller'=>'results','action' => 'delete',$result->id])) : ?> 
-                     <?= $this->Form->postLink($this->Html->image('ic_delete_forever_black_24px.svg'), ['action' => 'delete', $result->id], ['confirm' => __('Are you sure you want to delete # {0}?', $result->id),'escape'=>false,'class'=>'float-right']) ?>
-                   <?php endif; ?>
-
-								</td>
+                    <?=$this->AuthLink->link('<i class="far fa-edit"></i>',['plugin'=>'Sasilen/Results','controller'=>'results','action' => 'edit',$result->id],['escape'=>false,'class'=>'float-right']);?>
+                    <?=$this->AuthLink->postLink('<i class="far fa-trash-alt"></i>', ['plugin'=>'Sasilen/Results','controller'=>'results','action' => 'delete', $result->id], ['confirm' => __('Are you sure you want to delete # {0}?', $result->id),'escape'=>false,'class'=>'float-right']) ?>
+				</td>
             </tr>
             <?php endforeach; ?>
         </tbody>
@@ -94,32 +93,36 @@
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-    </div>
 			</div>
 		</div>
-    <div class="col-md-3">
-		<?php if (isset($dates)): ?>
-      <h3><?php echo __('Dates',true);?></h3>
-			<?=$this->Results->menu($dates,'date',$query); ?>
+    <div class="card">
+        <?php if (isset($dates)): ?>
+        <div class="card-header">
+      <h5><?php echo __('Dates',true);?></h5>
+            
+      </div>
+<div class="card-body">
+            <?=$this->Results->menu($dates,'date',$query); ?>
+</div>
     <?php endif?>
 
     <?php if (isset($clubss)): ?>
-      <h3><?php echo __('Clubs',true);?></h3>
+      <div class="card-header>"<h3><?php echo __('Clubs',true);?></h3></div>
       <?=$this->Results->menu($clubs,'club',$query); ?>
     <?php endif?>
 
 		<?php if (isset($leagues)): ?>
-      <h3><?php echo __('Leagues',true);?></h3>
-      <?=$this->Results->menu($leagues,'league',$query); ?>
+      <div class="card-header"><h3><?php echo __('Leagues',true);?></h3></div>
+      <div class="card-body"><?=$this->Results->menu($leagues,'league',$query); ?></div>
     <?php endif?>
 
-    <?php if (isset($races)): ?>
+<!--    <?php if (isset($races)): ?>
 	    <h3><?php echo __('Races',true);?></h3>
 			<?=$this->Results->menu($races,'race',$query); ?>
-    <?php endif?>
-		<hr/>
-		<H3> Laukkosken Taimi </h3>
-		<p> Kotojärven ympärijuoksun tulostaulu.</p>
+    <?php endif?> -->
+<div class="card-footer>">
+		<center><span class="badge badge-pill badge-info"><H4> Laukkosken Taimi </h4></span></center>
+		<p> Kotojärven ympärijuoksun tulostaulu</p></div>
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!-- sidebanner -->
 		<ins class="adsbygoogle"

@@ -63,7 +63,7 @@ class ResultsController extends AppController
      */
     public function add()
     {
-        $result = $this->Results->newEntity();
+        $result = $this->Results->newEmptyEntity();
         if ($this->request->is('post')) {
             $result = $this->Results->patchEntity($result, $this->request->getData());
             if ($this->Results->save($result)) {
@@ -75,7 +75,7 @@ class ResultsController extends AppController
         }
         $users = $this->Results->Users->find('list', ['limit' => 200]);
         $this->set(compact('result', 'users'));
-        $this->set('_serialize', ['result']);
+//        $this->set('_serialize', ['result']);
     }
 
     /**
