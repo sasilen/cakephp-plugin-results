@@ -1,6 +1,6 @@
 {
     "name": "sasilen/results",
-    "description": "Results plugin for CakePHP 3",
+    "description": "Results plugin for CakePHP 4",
     "type": "cakephp-plugin",
     "license": "MIT",
     "require": {
